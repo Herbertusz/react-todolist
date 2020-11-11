@@ -1,0 +1,38 @@
+@import 'styles/variables';
+
+.app {
+  width: 100%;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100px;
+    background-color: #282c34;
+    color: white;
+
+    .logo {
+      height: 80px;
+    }
+
+    h1 {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+
+    &::after {
+      content: '';
+      width: 113px;
+    }
+  }
+
+  .content {
+    margin: 30px auto;
+    width: 50%;
+  }
+}
+
+.test {
+  font-size: 20px;  // ütközés tesztelése
+}

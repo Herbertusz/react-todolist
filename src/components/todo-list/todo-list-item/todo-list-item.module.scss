@@ -1,0 +1,12 @@
+@import 'styles/variables';
+
+.item {
+  border: 1px solid #cccccc;
+}
+
+.delete {
+  float: right;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
