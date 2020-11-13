@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import logo from './logo.svg';
 import TodoList from './todo-list/todo-list';
+import logo from './logo.svg';
 import styles from './app.module.scss';
 
+const defaultTheme = 'light';
+const ThemeContext = React.createContext(defaultTheme);
+
 const App = function() {
+
+  const [theme, setTheme] = useState(defaultTheme);
+
+  const toggleTheme = function() {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  }
 
   return (
     <React.Fragment>
@@ -18,7 +27,9 @@ const App = function() {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <TodoList />
+            <ThemeContext.Provider value={theme}>
+              <TodoList />
+            </ThemeContext.Provider>
           </div>
         </div>
       </div>
@@ -27,4 +38,5 @@ const App = function() {
 
 };
 
+export { ThemeContext };
 export default App;
