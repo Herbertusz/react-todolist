@@ -11,12 +11,13 @@ const TodoList = function() {
   const [nextId, setNextId] = useState(1);
 
   useEffect(() => {
-    const listFromStorage = [
-      { id: 1, text: 'A legnagyobb dobossá válni', done: true },
-      { id: 2, text: 'Tolni a JS-t mint állat', done: true },
-      { id: 3, text: 'Megtanulni a JSX-et', done: false },
-      { id: 4, text: 'Besegíteni a react-os projektbe', done: false }
-    ];
+    // const listFromStorage = [
+    //   { id: 1, text: 'A legnagyobb dobossá válni', done: true },
+    //   { id: 2, text: 'Tolni a JS-t mint állat', done: true },
+    //   { id: 3, text: 'Megtanulni a JSX-et', done: false },
+    //   { id: 4, text: 'Besegíteni a react-os projektbe', done: false }
+    // ];
+    const listFromStorage = JSON.parse(localStorage.getItem('todolist')) || [];
 
     const maxId = listFromStorage.reduce(
       (acc, curr) => curr.id > acc ? curr.id : acc, 0
@@ -31,6 +32,7 @@ const TodoList = function() {
     const changedList = [...list];
     changedList[index].done = !changedList[index].done;
     setList(changedList);
+    localStorage.setItem('todolist', JSON.stringify(changedList));
   };
 
   const deleteItem = (id) => {
@@ -38,14 +40,17 @@ const TodoList = function() {
       item => item.id !== id
     );
     setList(changedList);
+    localStorage.setItem('todolist', JSON.stringify(changedList));
   };
 
   const addItem = (text) => {
-    setList([
+    const changedList = [
       ...list,
       { id: nextId, text, done: false }
-    ]);
+    ];
+    setList(changedList);
     setNextId(nextId + 1);
+    localStorage.setItem('todolist', JSON.stringify(changedList));
   };
 
   return (

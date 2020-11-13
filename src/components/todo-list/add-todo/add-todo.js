@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
+import { ThemeContext } from '../../app';
 import styles from './add-todo.module.scss';
+import { cx } from '../../../utility';
+
 
 const AddTodo = function(props) {
+
+  const theme = useContext(ThemeContext);
 
   const [text, setText] = useState('');
 
@@ -16,7 +21,7 @@ const AddTodo = function(props) {
   };
 
   return (
-    <form className={styles.form}>
+    <form className={cx(styles.form, styles[theme])}>
       <input type="text" placeholder="Add todo" value={text} onChange={changeText} />
       <button type="button" onClick={addText}>OK</button>
     </form>

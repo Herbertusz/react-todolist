@@ -41,4 +41,8 @@ export const Loop = function(props) {
     }
   }
   return <React.Fragment>{items}</React.Fragment>;
-}
+};
+
+export const cx = function(...classList){
+  return classList.join(' ');
+};

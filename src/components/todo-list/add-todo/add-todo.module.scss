@@ -6,6 +6,9 @@
   border-top: 1px solid black;
   display: flex;
   flex-direction: column;
+  &.dark{
+    background: black;
+  }
 
   input{
     padding: .5em 1em;

@@ -2,6 +2,7 @@ import { useContext } from 'react';
 
 import { ThemeContext } from '../../app';
 import styles from './todo-list-item.module.scss';
+import { cx } from '../../../utility';
 
 const TodoListItem = function(props) {
 
@@ -16,7 +17,7 @@ const TodoListItem = function(props) {
   };
 
   return (
-    <li className={styles.item + ' ' + styles[theme]}>
+    <li className={cx(styles.item, styles[theme])}>
       <label className={styles.checkbox}>
         <input type="checkbox" checked={props.done} onChange={toggleDone} />
         <span className={styles.text}>{props.text}</span>
