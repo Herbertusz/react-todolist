@@ -49,8 +49,7 @@ const TodoList = function() {
   };
 
   return (
-    <div>
-      <h1 className={styles.test}>Lista</h1>
+    <div className={styles.listContainer}>
       <ul className={styles.list}>
         <Loop forEach={list}>
           {item => (

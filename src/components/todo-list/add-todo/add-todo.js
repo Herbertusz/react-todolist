@@ -17,7 +17,7 @@ const AddTodo = function(props) {
 
   return (
     <form className={styles.form}>
-      <input type="text" value={text} onChange={changeText} />
+      <input type="text" placeholder="Add todo" value={text} onChange={changeText} />
       <button type="button" onClick={addText}>OK</button>
     </form>
   );

@@ -12,8 +12,10 @@ const TodoListItem = function(props) {
 
   return (
     <li className={styles.item}>
-      <input type="checkbox" checked={props.done} onChange={toggleDone} />
-      <span>{props.text}</span>
+      <label className={styles.checkbox}>
+        <input type="checkbox" checked={props.done} onChange={toggleDone} />
+        <span className={styles.text}>{props.text}</span>
+      </label>
       <span className={styles.delete} onClick={deleteItem}>X</span>
     </li>
   );

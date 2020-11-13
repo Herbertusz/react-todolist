@@ -2,11 +2,27 @@
 
 .item {
   border: 1px solid #cccccc;
+  border-radius: 3px;
+  padding: .5em 1em;
+
+  &:hover{
+    background-color: #EBEBEB;
+  }
+
+  .text{
+    padding-left: 15px;
+  }
 }
 
 .delete {
   float: right;
-  color: red;
+  color: white;
   font-weight: bold;
   cursor: pointer;
+  background: lightgrey;
+  border-radius: 50%;
+  width: 1.5em;
+  text-align: center;
+  font-size: 12px;
 }
+    
