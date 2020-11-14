@@ -32,10 +32,10 @@ const App = function() {
           </label>
           <nav className={cx(styles.nav, 'col-8 offset-2')}>
             <ul className="row">
-              <li className="col-3">
+              <li className="col-2">
                 <NavLink to="/todolist" className={styles.link} activeClassName={styles.active}>TODO-list</NavLink>
               </li>
-              <li className="col-3">
+              <li className="col-2">
                 <NavLink to="/training" className={styles.link} activeClassName={styles.active}>Training</NavLink>
               </li>
             </ul>
