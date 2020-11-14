@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 
 import TodoList from './todo-list/todo-list';
+import Training from './training/training';
+import { cx } from '../utility';
 import logo from './logo.svg';
 import styles from './app.module.scss';
-import { cx } from '../utility';
 
 const defaultTheme = 'light';
 const ThemeContext = React.createContext(defaultTheme);
@@ -28,14 +30,40 @@ const App = function() {
           <label className={cx(styles.themeSelector,' col-1')}>
             <input type="checkbox" checked={theme === 'dark'} onChange={toggleTheme} /> Dark
           </label>
+          <nav className={cx(styles.nav, 'col-8 offset-2')}>
+            <ul className="row">
+              <li className="col-3">
+                <NavLink to="/todolist" className={styles.link} activeClassName={styles.active}>TODO-list</NavLink>
+              </li>
+              <li className="col-3">
+                <NavLink to="/training" className={styles.link} activeClassName={styles.active}>Training</NavLink>
+              </li>
+            </ul>
+          </nav>
         </header>
       </div>
-      
+
       <div className="container">
         <div className="row">
           <div className="col-12">
             <ThemeContext.Provider value={theme}>
-              <TodoList />
+
+              <Switch>
+
+                <Route exact path="/">
+                  <Redirect to="/todolist" />
+                </Route>
+
+                <Route path="/todolist">
+                  <TodoList />
+                </Route>
+
+                <Route path="/training">
+                  <Training />
+                </Route>
+
+              </Switch>
+
             </ThemeContext.Provider>
           </div>
         </div>

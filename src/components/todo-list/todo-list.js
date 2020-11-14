@@ -11,12 +11,6 @@ const TodoList = function() {
   const [nextId, setNextId] = useState(1);
 
   useEffect(() => {
-    // const listFromStorage = [
-    //   { id: 1, text: 'A legnagyobb dobossá válni', done: true },
-    //   { id: 2, text: 'Tolni a JS-t mint állat', done: true },
-    //   { id: 3, text: 'Megtanulni a JSX-et', done: false },
-    //   { id: 4, text: 'Besegíteni a react-os projektbe', done: false }
-    // ];
     const listFromStorage = JSON.parse(localStorage.getItem('todolist')) || [];
 
     const maxId = listFromStorage.reduce(
@@ -48,8 +42,8 @@ const TodoList = function() {
       ...list,
       { id: nextId, text, done: false }
     ];
-    setList(changedList);
     setNextId(nextId + 1);
+    setList(changedList);
     localStorage.setItem('todolist', JSON.stringify(changedList));
   };
 
