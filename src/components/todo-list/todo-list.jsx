@@ -52,11 +52,11 @@ const TodoList = function() {
       <ul className={styles.list}>
         <Loop forEach={list}>
           {item => (
-            <TodoListItem key={item.id} {...item} onToggle={(id) => toggleDone(id)} deleteItem={(id) => deleteItem(id)} />
+            <TodoListItem key={item.id} {...item} onToggle={toggleDone} deleteItem={deleteItem} />
           )}
         </Loop>
       </ul>
-      <AddTodo addItem={text => addItem(text)} />
+      <AddTodo addItem={addItem} />
     </div>
   );
 
