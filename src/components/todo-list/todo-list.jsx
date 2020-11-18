@@ -50,6 +50,9 @@ const TodoList = function() {
   return (
     <div className={styles.listContainer}>
       <ul className={styles.list}>
+        {!list.length &&
+          <li>Nothing todo</li>
+        }
         <Loop forEach={list}>
           {item => (
             <TodoListItem key={item.id} {...item} onToggle={toggleDone} deleteItem={deleteItem} />

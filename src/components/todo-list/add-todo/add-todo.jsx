@@ -12,7 +12,9 @@ const AddTodo = function(props) {
   const [text, setText] = useState('');
 
   const addText = () => {
-    props.addItem(text);
+    if (text.trim().length > 0) {
+      props.addItem(text);
+    }
     setText('');
   };
 
