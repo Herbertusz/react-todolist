@@ -12,6 +12,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  &.light{
+    background: white;
+  }
+  &.dark{
+    background: #202529;
+  }
 }
 
 code {
