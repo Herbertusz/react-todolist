@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Loop } from '../../utility';
 import styles from './training.module.scss';
 
 const Training = function() {
@@ -8,7 +9,7 @@ const Training = function() {
   const [winner, setWinner] = useState(null);
 
   const setSign = function (index) {
-    if (!board[index]) {
+    if (!board[index] && getWinner(board) === null) {
       // event.target.innerHTML = player;
       const newBoard = [...board];
       newBoard[index] = player;
@@ -30,7 +31,7 @@ const Training = function() {
       [0, 4, 8],
       [2, 4, 6], 
     ];
-    combinations.some(combination => {
+    const isWinner = combinations.some(combination => {
       const allX = combination.every(index => currentBoard[index] === 'X');
       const allO = combination.every(index => currentBoard[index] === 'O');
       if (allX) {
@@ -41,35 +42,34 @@ const Training = function() {
       }
       return allX || allO;
     });
-    console.log(result);
+    const boardIsFull = !currentBoard.some(field => field === null);
+    if (boardIsFull && !isWinner) {
+      result = "Draw";
+    }
     return result;
+  }
+
+  const reset = function() {
+    setPlayer('X');
+    setBoard(Array(9).fill(null));
+    setWinner(null);
   }
 
   return (
     <React.Fragment>
-      <table className={styles.table}>
-        <tbody>
-          <tr>
-            <td onClick={() => setSign(0)}>{board[0]}</td>
-            <td onClick={() => setSign(1)}>{board[1]}</td>
-            <td onClick={() => setSign(2)}>{board[2]}</td>
-          </tr>
-          <tr>
-            <td onClick={() => setSign(3)}>{board[3]}</td>
-            <td onClick={() => setSign(4)}>{board[4]}</td>
-            <td onClick={() => setSign(5)}>{board[5]}</td>
-          </tr>
-          <tr>
-            <td onClick={() => setSign(6)}>{board[6]}</td>
-            <td onClick={() => setSign(7)}>{board[7]}</td>
-            <td onClick={() => setSign(8)}>{board[8]}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className={styles.table}>
+        <Loop for={9}>
+          {n => (
+            <div key={n} onClick={() => setSign(n)}>{board[n]}</div>
+          )}
+        </Loop>
+      </div>
     
       {winner &&
-        <div>Nyertes: {winner}</div>
+        <div>Nyertes: {winner === 'Draw' ? 'Döntetlen' : winner}</div>
       }
+
+      <button onClick={reset}>Reset</button>
     </React.Fragment>
   );
 };

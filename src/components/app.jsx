@@ -3,6 +3,7 @@ import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 
 import TodoList from './todo-list/todo-list';
 import Training from './training/training';
+import Fetch from './fetch/fetch';
 import { cx } from '../utility';
 import logo from './logo.svg';
 import styles from './app.module.scss';
@@ -38,6 +39,9 @@ const App = function() {
               <li className="col-2">
                 <NavLink to="/training" className={styles.link} activeClassName={styles.active}>Training</NavLink>
               </li>
+              <li className="col-2">
+                <NavLink to="/fetch" className={styles.link} activeClassName={styles.active}>Fetch</NavLink>
+              </li>
             </ul>
           </nav>
         </header>
@@ -60,6 +64,10 @@ const App = function() {
 
                 <Route path="/training">
                   <Training />
+                </Route>
+                
+                <Route path="/fetch">
+                  <Fetch />
                 </Route>
 
               </Switch>
