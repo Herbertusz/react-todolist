@@ -71,6 +71,7 @@ const Training = function() {
       <GameStatus nextPlayer={player} winner={winner} />
     </React.Fragment>
   );
+
 };
 
 export default Training;
