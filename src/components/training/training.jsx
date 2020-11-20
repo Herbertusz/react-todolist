@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Loop } from '../../utility';
 import styles from './training.module.scss';
+import GameStatus from './game-status/game-status';
 
 const Training = function() {
 
@@ -29,7 +30,7 @@ const Training = function() {
       [1, 4, 7],
       [2, 5, 8],
       [0, 4, 8],
-      [2, 4, 6], 
+      [2, 4, 6],
     ];
     const isWinner = combinations.some(combination => {
       const allX = combination.every(index => currentBoard[index] === 'X');
@@ -64,12 +65,10 @@ const Training = function() {
           )}
         </Loop>
       </div>
-    
-      {winner &&
-        <div>Nyertes: {winner === 'Draw' ? 'Döntetlen' : winner}</div>
-      }
 
       <button onClick={reset}>Reset</button>
+      <hr />
+      <GameStatus nextPlayer={player} winner={winner} />
     </React.Fragment>
   );
 };
