@@ -4,7 +4,6 @@ import { ThemeContext } from '../../app';
 import { cx } from '../../../utility';
 import styles from './add-todo.module.scss';
 
-
 const AddTodo = function(props) {
 
   const theme = useContext(ThemeContext);

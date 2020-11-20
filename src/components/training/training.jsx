@@ -29,7 +29,7 @@ const Training = function() {
       [1, 4, 7],
       [2, 5, 8],
       [0, 4, 8],
-      [2, 4, 6], 
+      [2, 4, 6],
     ];
     const isWinner = combinations.some(combination => {
       const allX = combination.every(index => currentBoard[index] === 'X');
@@ -72,6 +72,7 @@ const Training = function() {
       <button onClick={reset}>Reset</button>
     </React.Fragment>
   );
+
 };
 
 export default Training;
