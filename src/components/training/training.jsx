@@ -58,6 +58,7 @@ const Training = function() {
 
   return (
     <React.Fragment>
+      <h1 className={styles.title}>Tic Tac Toe</h1>
       <div className={styles.table}>
         <Loop for={9}>
           {n => (
@@ -65,8 +66,10 @@ const Training = function() {
           )}
         </Loop>
       </div>
+      <div className={styles.resetButton}>
+        <button onClick={reset}>Reset</button>
+      </div>
 
-      <button onClick={reset}>Reset</button>
       <hr />
       <GameStatus nextPlayer={player} winner={winner} />
     </React.Fragment>

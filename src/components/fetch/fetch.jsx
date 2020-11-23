@@ -20,7 +20,7 @@ const Fetch = function () {
 			.catch((error) => {
 				console.warn(error);
 			});
-		
+
 		return () => {
 			controller.abort();
 		};
@@ -34,12 +34,17 @@ const Fetch = function () {
 			{employees &&
 				<table>
 					<tbody>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Salary</th>
+            </tr>
 						<Loop forEach={employees}>
 							{(item) => (
 								<tr key={item.id}>
 									<td>{item.employee_name}</td>
 									<td>{item.employee_age}</td>
-									<td>{item.employee_salary}</td>
+									<td>{item.employee_salary} $</td>
 								</tr>
 							)}
 						</Loop>
