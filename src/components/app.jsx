@@ -7,6 +7,8 @@ import Fetch from './fetch/fetch';
 import { cx } from '../utility';
 import logo from './logo.svg';
 import styles from './app.module.scss';
+import RichTextEditor from './calculator/calculator';
+import Calculator from './calculator/calculator';
 
 const defaultTheme = 'light';
 const ThemeContext = React.createContext(defaultTheme);
@@ -42,6 +44,9 @@ const App = function() {
               <li className="col-2">
                 <NavLink to="/fetch" className={styles.link} activeClassName={styles.active}>Fetch</NavLink>
               </li>
+              <li className="col-2">
+                <NavLink to="/editor" className={styles.link} activeClassName={styles.active}>Calculator</NavLink>
+              </li>
             </ul>
           </nav>
         </header>
@@ -65,9 +70,13 @@ const App = function() {
                 <Route path="/training">
                   <Training />
                 </Route>
-                
+
                 <Route path="/fetch">
                   <Fetch />
+                </Route>
+
+                <Route path="/editor">
+                  <Calculator />
                 </Route>
 
               </Switch>
