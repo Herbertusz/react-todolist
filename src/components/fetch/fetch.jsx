@@ -32,7 +32,7 @@ const Fetch = function () {
 				<div>Betöltés</div>
 			}
 			{employees &&
-				<table>
+				<table className={styles.fetchTable}>
 					<tbody>
             <tr>
               <th>Name</th>
