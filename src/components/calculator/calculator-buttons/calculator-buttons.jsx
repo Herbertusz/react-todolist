@@ -1,42 +1,56 @@
+import { evaluate } from 'mathjs';
 import styles from './calculator-buttons.module.scss';
 
-const CalculatorButtons = function() {
+const CalculatorButtons = function({setMathText, setResult, calculate}) {
+
+  const clear = function() {
+    setMathText('');
+    setResult('');
+  };
+
+  const addCharacter = function(buttonValue) {
+    setMathText(currentMathText => currentMathText + buttonValue);
+  };
+
+  const backspace = function() {
+    setMathText(currentMathText => currentMathText.substring(0, currentMathText.length - 1));
+  };
 
   return (
     <table className={styles.buttonTable} tabIndex="0">
       <tbody>
         <tr>
-          <td><button> C </button></td>
-          <td><button> &larr; </button></td>
-          <td><button> ( </button></td>
-          <td><button> ) </button></td>
-          <td><button> &radic; </button></td>
+          <td><button onClick={clear}> C </button></td>
+          <td><button onClick={backspace}> &larr; </button></td>
+          <td><button onClick={() => addCharacter('(')}> ( </button></td>
+          <td><button onClick={() => addCharacter(')')}> ) </button></td>
+          <td><button onClick={() => addCharacter('√')}> &radic; </button></td>
         </tr>
         <tr>
-          <td><button> 7 </button></td>
-          <td><button> 8 </button></td>
-          <td><button> 9 </button></td>
-          <td><button> / </button></td>
-          <td><button> x<sup>y</sup> </button></td>
+          <td><button onClick={() => addCharacter('7')}> 7 </button></td>
+          <td><button onClick={() => addCharacter('8')}> 8 </button></td>
+          <td><button onClick={() => addCharacter('9')}> 9 </button></td>
+          <td><button onClick={() => addCharacter('/')}> / </button></td>
+          <td><button onClick={() => addCharacter('^')}> x<sup>y</sup> </button></td>
         </tr>
         <tr>
-          <td><button> 4 </button></td>
-          <td><button> 5 </button></td>
-          <td><button> 6 </button></td>
-          <td><button> * </button></td>
-          <td><button> 1/x </button></td>
+          <td><button onClick={() => addCharacter('4')}> 4 </button></td>
+          <td><button onClick={() => addCharacter('5')}> 5 </button></td>
+          <td><button onClick={() => addCharacter('6')}> 6 </button></td>
+          <td><button onClick={() => addCharacter('*')}> * </button></td>
+          <td><button onClick={() => addCharacter('1/')}> 1/x </button></td>
         </tr>
         <tr>
-          <td><button> 1 </button></td>
-          <td><button> 2 </button></td>
-          <td><button> 3 </button></td>
-          <td><button> - </button></td>
-          <td rowSpan="2"><button> = </button></td>
+          <td><button onClick={() => addCharacter('1')}> 1 </button></td>
+          <td><button onClick={() => addCharacter('2')}> 2 </button></td>
+          <td><button onClick={() => addCharacter('3')}> 3 </button></td>
+          <td><button onClick={() => addCharacter('-')}> - </button></td>
+          <td rowSpan="2"><button onClick={calculate}> = </button></td>
         </tr>
         <tr>
-          <td colSpan="2"><button> 0 </button></td>
-          <td><button> , </button></td>
-          <td><button> + </button></td>
+          <td colSpan="2"><button onClick={() => addCharacter('0')}> 0 </button></td>
+          <td><button onClick={() => addCharacter('.')}> . </button></td>
+          <td><button onClick={() => addCharacter('+')}> + </button></td>
         </tr>
       </tbody>
     </table>

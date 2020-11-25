@@ -1,11 +1,7 @@
-import { useState } from 'react';
-import { evaluate } from "mathjs";
 import styles from './calculator-display.module.scss';
 
-const CalculatorDisplay = function() {
+const CalculatorDisplay = function({mathText, setMathText, result, calculate}) {
 
-  const [mathText, setMathText] = useState('');
-  const [result, setResult] = useState(null);
   const allowedCharacters = '0123456789+-/*()^.=';
 
   const changeText = function(event) {
@@ -17,13 +13,7 @@ const CalculatorDisplay = function() {
 
   const keyDown = function(event) {
     if (event.nativeEvent.key === 'Enter') {
-      try {
-        const shortResult = String(evaluate(mathText)).substring(0, 17);
-        setResult(shortResult);
-      }
-      catch (exception) {
-        setResult('Hibás kifejezés!');
-      }
+      calculate();
     }
   };
 
