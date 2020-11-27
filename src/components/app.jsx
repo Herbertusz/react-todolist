@@ -4,10 +4,9 @@ import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 import TodoList from './todo-list/todo-list';
 import Training from './training/training';
 import Fetch from './fetch/fetch';
-import { cx } from '../utility';
+import { cx } from './shared/utility';
 import logo from './logo.svg';
 import styles from './app.module.scss';
-import RichTextEditor from './calculator/calculator';
 import Calculator from './calculator/calculator';
 
 const defaultTheme = 'light';

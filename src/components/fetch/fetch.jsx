@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Loop } from '../../utility';
+import { Loop } from '../shared/utility';
 import styles from './fetch.module.scss';
 
 

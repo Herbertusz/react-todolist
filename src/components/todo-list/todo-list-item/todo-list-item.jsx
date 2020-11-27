@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { ThemeContext } from '../../app';
 import styles from './todo-list-item.module.scss';
-import { cx } from '../../../utility';
+import { cx } from '../../shared/utility';
 
 const TodoListItem = function(props) {
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Loop } from '../../utility';
+import { Loop } from '../shared/utility';
 import AddTodo from './add-todo/add-todo';
 import TodoListItem from './todo-list-item/todo-list-item';
 import styles from './todo-list.module.scss';

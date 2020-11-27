@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 
 import { ThemeContext } from '../../app';
-import { cx } from '../../../utility';
+import { cx } from '../../shared/utility';
 import styles from './add-todo.module.scss';
 
 const AddTodo = function(props) {

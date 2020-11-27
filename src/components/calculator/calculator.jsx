@@ -12,9 +12,14 @@ const Calculator = function() {
   const calculate = function() {
     if (mathText !== '') {
       try {
-        const formattedMathText = mathText.replace(/√([\d.]+)/g, 'sqrt($1)');
-        console.log(formattedMathText);
-        const shortResult = String(evaluate(formattedMathText)).substring(0, 17);
+        const formattedMathText = mathText.replace(/√([\d.]+)/g, 'sqrt($1)').replace('=', '');
+        let shortResult = String(evaluate(formattedMathText)).substring(0, 17);
+        if (shortResult.includes('.')) {
+          let i;
+          for (i = shortResult.length - 1; shortResult[i] === '0'; i--);
+          shortResult = shortResult.substring(0, shortResult[i] === '.' ? i : i + 1);
+        }
+
         setResult(shortResult);
       }
       catch (exception) {
