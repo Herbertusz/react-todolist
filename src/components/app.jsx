@@ -7,6 +7,7 @@ import { cx } from './shared/utility';
 import Calculator from './calculator/calculator';
 import logo from '../assets/images/logo.svg';
 import styles from './app.module.scss';
+import CvGenerator from './cv-generator/cv-generator';
 
 const defaultTheme = 'light';
 const ThemeContext = React.createContext(defaultTheme);
@@ -81,7 +82,7 @@ const App = function() {
                 </Route>
 
                 <Route path="/cv-generator">
-                  <Calculator />
+                  <CvGenerator />
                 </Route>
 
               </Switch>

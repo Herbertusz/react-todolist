@@ -22,8 +22,8 @@ const CalculatorDisplay = function({mathText, setMathText, result, calculate}) {
       <input className={styles.expression} type="text" value={mathText} onChange={changeText} onKeyDown={keyDown} />
       <span className={styles.result}>{result}</span>
     </div>
-  )
+  );
 
-}
+};
 
 export default CalculatorDisplay;
