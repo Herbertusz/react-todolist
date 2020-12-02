@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Loop } from '../shared/utility';
-import styles from './training.module.scss';
 import GameStatus from './game-status/game-status';
+import styles from './training.module.scss';
 
 const Training = function() {
 

@@ -10,7 +10,7 @@ const Fetch = function () {
 	useEffect(() => {
 		const controller = new AbortController();
 		const signal = controller.signal;
-		fetch("http://dummy.restapiexample.com/api/v1/employees", { signal })
+		fetch('http://dummy.restapiexample.com/api/v1/employees', { signal })
 			.then((response) => {
 				return response.json();
 			})

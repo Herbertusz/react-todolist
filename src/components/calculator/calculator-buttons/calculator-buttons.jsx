@@ -1,7 +1,7 @@
-import Button from "../../shared/button";
+import Button from '../../shared/button';
 import CalculatorButtonsTemplate from './calculator-buttons-template';
 
-const CalculatorButtons = function({setMathText, setResult, calculate}) {
+const CalculatorButtons = function({ setMathText, setResult, calculate }) {
 
   const clear = function() {
     setMathText('');

@@ -1,8 +1,8 @@
-import CalculatorDisplay from "./calculator-display/calculator-display";
-import CalculatorButtons from "./calculator-buttons/calculator-buttons";
-import styles from './calculator.module.scss';
 import { useState } from 'react';
-import { evaluate } from "mathjs";
+import { evaluate } from 'mathjs';
+import CalculatorDisplay from './calculator-display/calculator-display';
+import CalculatorButtons from './calculator-buttons/calculator-buttons';
+import styles from './calculator.module.scss';
 
 const Calculator = function() {
 

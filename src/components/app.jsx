@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
-
 import TodoList from './todo-list/todo-list';
 import Training from './training/training';
 import Fetch from './fetch/fetch';
 import { cx } from './shared/utility';
-import logo from './logo.svg';
-import styles from './app.module.scss';
 import Calculator from './calculator/calculator';
+import logo from '../assets/images/logo.svg';
+import styles from './app.module.scss';
 
 const defaultTheme = 'light';
 const ThemeContext = React.createContext(defaultTheme);
@@ -27,9 +26,9 @@ const App = function() {
     <React.Fragment>
       <div className="container-fluid">
         <header className={cx(styles.header, 'row')}>
-          <img src={logo} className={cx(styles.logo,' col-1')} alt="logo" />
+          <img src={logo} className={cx(styles.logo, 'col-1')} alt="logo" />
           <h1 className="col-10">React TODO-list app</h1>
-          <label className={cx(styles.themeSelector,' col-1')}>
+          <label className={cx(styles.themeSelector, 'col-1')}>
             <input type="checkbox" checked={theme === 'dark'} onChange={toggleTheme} /> Dark
           </label>
           <nav className={cx(styles.nav, 'col-8 offset-2')}>
@@ -44,7 +43,10 @@ const App = function() {
                 <NavLink to="/fetch" className={styles.link} activeClassName={styles.active}>Fetch</NavLink>
               </li>
               <li className="col-2">
-                <NavLink to="/editor" className={styles.link} activeClassName={styles.active}>Calculator</NavLink>
+                <NavLink to="/calculator" className={styles.link} activeClassName={styles.active}>Calculator</NavLink>
+              </li>
+              <li className="col-2">
+                <NavLink to="/cv-generator" className={styles.link} activeClassName={styles.active}>CV generator</NavLink>
               </li>
             </ul>
           </nav>
@@ -74,7 +76,11 @@ const App = function() {
                   <Fetch />
                 </Route>
 
-                <Route path="/editor">
+                <Route path="/calculator">
+                  <Calculator />
+                </Route>
+
+                <Route path="/cv-generator">
                   <Calculator />
                 </Route>
 

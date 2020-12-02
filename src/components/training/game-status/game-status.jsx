@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const GameStatus = function(props) {
 
@@ -10,7 +10,7 @@ const GameStatus = function(props) {
         <div>Következő: {props.nextPlayer}</div>
       }
       {props.winner &&
-          <div>Nyertes: {props.winner === 'Draw' ? 'Döntetlen' : props.winner}</div>
+        <div>Nyertes: {props.winner === 'Draw' ? 'Döntetlen' : props.winner}</div>
       }
     </React.Fragment>
   );

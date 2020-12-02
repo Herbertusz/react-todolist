@@ -1,4 +1,4 @@
-import styles from './calculator-buttons.module.scss'
+import styles from './calculator-buttons.module.scss';
 
 const CalculatorButtonsTemplate = function({ CalcButtonSample, clear, backspace, getResult }) {
 

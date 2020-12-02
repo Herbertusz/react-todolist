@@ -43,6 +43,24 @@ export const Loop = function(props) {
   return <React.Fragment>{items}</React.Fragment>;
 };
 
+/**
+ * HTML kód beszúrása
+ * @param {object} props
+ * @return {ReactElement}
+ * @example
+ *  <div><Html>{htmlCode}</Html></div>
+ */
+export const Html = function(props) {
+  return <span dangerouslySetInnerHTML={{ __html: props.children }}></span>;
+};
+
+/**
+ * Segédfüggvény class-ok hozzáadásához
+ * @param {...string} classList - class-ok
+ * @return {string} szóközökkel összefűzött lista
+ * @example
+ *  <div className={cx(styles.logo, styles.big, 'col-1')}>
+ */
 export const cx = function(...classList) {
   return classList.join(' ');
 };
