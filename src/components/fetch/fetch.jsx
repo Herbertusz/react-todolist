@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Loop } from '../shared/utility';
-import styles from './fetch.module.scss';
+import { useEffect, useState } from 'react';
+import FetchTemplate from './fetch-template';
+
+
 
 
 const Fetch = function () {
@@ -26,33 +27,10 @@ const Fetch = function () {
 		};
 	});
 
-	return (
-		<React.Fragment>
-			{!employees &&
-				<div>Betöltés</div>
-			}
-			{employees &&
-				<table className={styles.fetchTable}>
-					<tbody>
-            <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Salary</th>
-            </tr>
-						<Loop forEach={employees}>
-							{(item) => (
-								<tr key={item.id}>
-									<td>{item.employee_name}</td>
-									<td>{item.employee_age}</td>
-									<td>{item.employee_salary} $</td>
-								</tr>
-							)}
-						</Loop>
-					</tbody>
-				</table>
-			}
-		</React.Fragment>
+	return(
+		<FetchTemplate employees={employees}/>
 	);
+	
 };
 
 export default Fetch;
