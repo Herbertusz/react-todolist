@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../../app';
-import { cx } from '../../shared/utility';
-import styles from './todo-list-item.module.scss';
+import TodoListItemTemplate from './todo-list-item-template';
 
 const TodoListItem = function(props) {
 
@@ -16,13 +15,7 @@ const TodoListItem = function(props) {
   };
 
   return (
-    <li className={cx(styles.item, styles[theme])}>
-      <label className={styles.checkbox}>
-        <input type="checkbox" checked={props.done} onChange={toggleDone} />
-        <span className={styles.text}>{props.text}</span>
-      </label>
-      <span className={styles.delete} onClick={deleteItem}>X</span>
-    </li>
+    <TodoListItemTemplate props={props} theme={theme} toggleDone={toggleDone} deleteItem={deleteItem}/>
   );
 
 };

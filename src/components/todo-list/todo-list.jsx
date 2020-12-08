@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Loop } from '../shared/utility';
-import AddTodo from './add-todo/add-todo';
-import TodoListItem from './todo-list-item/todo-list-item';
-import styles from './todo-list.module.scss';
+import TodoListTemplate from './todo-list-template';
 
 const TodoList = function() {
 
@@ -47,19 +44,7 @@ const TodoList = function() {
   };
 
   return (
-    <div className={styles.listContainer}>
-      <ul className={styles.list}>
-        {!list.length &&
-          <li>Nothing todo</li>
-        }
-        <Loop forEach={list}>
-          {item => (
-            <TodoListItem key={item.id} {...item} onToggle={toggleDone} deleteItem={deleteItem} />
-          )}
-        </Loop>
-      </ul>
-      <AddTodo addItem={addItem} />
-    </div>
+   <TodoListTemplate list={list} toggleDone={toggleDone} deleteItem={deleteItem} addItem={addItem}/>
   );
 
 };
