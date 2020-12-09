@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Loop } from '../shared/utility';
 import GameStatus from './game-status/game-status';
 import styles from './training.module.scss';

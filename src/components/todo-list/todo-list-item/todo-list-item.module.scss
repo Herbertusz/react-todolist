@@ -7,6 +7,10 @@
   &.dark {
     background-color: #202529;
     color: white;
+
+    &:hover {
+      background-color: #202529;
+    }
   }
 
   &:hover {

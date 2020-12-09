@@ -55,7 +55,7 @@ const Training = function() {
   }
 
   return (
-    <TrainingTemplate setSign={setSign} reset={reset} winner={winner}/>
+    <TrainingTemplate setSign={setSign} reset={reset} winner={winner} board={board} player={player}/>
   );
 
 };
